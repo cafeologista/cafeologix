@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="cafeoLogix builds structured digital infrastructure for nonprofits and growing small businesses—Microsoft 365 ecosystems and website digital presence." />
+  <title>cafeoLogix | Digital Infrastructure</title>
+
+  <!-- Optional: If you want a web font, you can add it later. This version stays fully self-contained. -->
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #4b5563;
+      --soft: #6b7280;
+      --border: #e5e7eb;
+      --card: #fafafa;
+      --accent: #b08d57; /* subtle "coffee-gold" */
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      letter-spacing: .1px;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+
+    .wrap{
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 20px 70px;
+    }
+
+    /* Top bar */
+    .topbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    /* Replace this div with your logo image:
+       <img src="your-logo.png" alt="cafeoLogix logo" class="logo" />
+    */
+    .logo-placeholder{
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #fff, #f3f4f6);
+      display: grid;
+      place-items: center;
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .brand-name{
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .brand-tag{
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    nav{
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    nav a:hover{
+      background: #f7f7f7;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 46px 0 24px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items: start;
+    }
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--muted);
+      background: #fbfbfb;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(176,141,87,.14);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: 40px;
+      line-height: 1.15;
+      letter-spacing: -.4px;
+    }
+    @media (max-width: 520px){
+      h1{ font-size: 34px; }
+    }
+
+    .subhead{
+      font-size: 16.5px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    }
+    .btn:hover{ background: #f9fafb; text-decoration: none; }
+
+    .btn-primary{
+      border-color: rgba(176,141,87,.55);
+      background: linear-gradient(180deg, #ffffff, #fffaf2);
+    }
+
+    .btn small{
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .hero-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), rgba(176,141,87,.15));
+    }
+    .hero-card h3{
+      margin: 2px 0 8px;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .hero-card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .mini{
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .mini .row{
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    .pill{
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    /* Sections */
+    section{
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-title{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    h2{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -.2px;
+    }
+    .hint{
+      color: var(--muted);
+      font-size: 13.5px;
+      max-width: 70ch;
+    }
+
+    .grid-2{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 860px){
+      .grid-2{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+      position: relative;
+    }
+    .card::before{
+      content:"";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(176,141,87,.85), rgba(176,141,87,.05));
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      opacity: .85;
+    }
+    .card h3{
+      margin: 6px 0 8px;
+      font-size: 15px;
+    }
+    .card p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    li{ margin: 6px 0; }
+
+    /* Steps */
+    .steps{
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+    @media (max-width: 980px){
+      .steps{ grid-template-columns: 1fr; }
+    }
+    .step{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: #fff;
+    }
+    .num{
+      width: 30px; height: 30px;
+      display: grid; place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fbfbfb;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .step b{
+      display: block;
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+    .step span{
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Support tiers */
+    .tiers{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){
+      .tiers{ grid-template-columns: 1fr; }
+    }
+    .tier{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+      position: relative;
+    }
+    .tier .label{
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .tier .label i{
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .tier h4{
+      margin: 0 0 6px;
+      font-size: 14.5px;
+    }
+    .tier p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .fine{
+      color: var(--soft);
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <!-- Replace this placeholder with your logo image -->
+        <div class="logo-placeholder">CL</div>
+
+        <div>
+          <div class="brand-name">cafeoLogix</div>
+          <div class="brand-tag">Digital Infrastructure Studio</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#who">Who we serve</a>
+        <a href="#offerings">Offerings</a>
+        <a href="#how">How we work</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero" id="top">
+      <div>
+        <div class="kicker"><span class="dot"></span> Structured systems. Scalable presence.</div>
+        <h1>Digital infrastructure for nonprofits & growing small businesses.</h1>
+        <p class="subhead">
+          cafeoLogix designs internal and external digital ecosystems that are secure, intentional,
+          and built for long-term sustainability—delivered with boutique care and enterprise-level structure.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:cafeologix@gmail.com?subject=Consultation%20Request%20-%20cafeoLogix&body=Hello%20cafeoLogix%2C%0A%0AI%27d%20like%20to%20request%20a%20consultation.%0A%0AOrganization%3A%0AWebsite%20%28if%20applicable%29%3A%0AWhat%20you%27re%20looking%20to%20build%2Fimprove%3A%0APreferred%20timeline%3A%0A%0AThank%20you%2C%0A">Request Consultation</a>
+          <a class="btn" href="#offerings">View Services <small>↓</small></a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>At a glance</h3>
+        <p>Two core ecosystems, designed with governance and sustainability in mind.</p>
+
+        <div class="mini">
+          <div class="row">
+            <div class="pill">Microsoft 365</div>
+            <div>Architecture-led digital workplace ecosystems (advisory + selective implementation).</div>
+          </div>
+          <div class="row">
+            <div class="pill">Website</div>
+            <div>Strategic external presence ecosystems (Wix builds + stabilization + support).</div>
+          </div>
+          <div class="row">
+            <div class="pill">Support</div>
+            <div>Structured six-month support terms with optional renewal—no quarterly/annual lock-in.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="who">
+      <div class="section-title">
+        <h2>Who we serve</h2>
+        <div class="hint">Curated engagements for organizations ready to invest in clarity and structure.</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Nonprofits</h3>
+          <p>Mission-driven teams moving from informal tools to governed, scalable systems.</p>
+          <ul>
+            <li>Better collaboration and document control</li>
+            <li>Clear permissioning and governance</li>
+            <li>Professional, sustainable digital presence</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Growing small businesses</h3>
+          <p>Founder-led and growth-oriented teams building structure for the next stage.</p>
+          <ul>
+            <li>Operational clarity and standardization</li>
+            <li>Scalable digital infrastructure</li>
+            <li>Credibility and customer-facing presence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings">
+      <div class="section-title">
+        <h2>What we build</h2>
+        <div class="hint">Two pillars. One philosophy: intentionally designed ecosystems.</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Microsoft 365 Digital Workplace Ecosystems</h3>
+          <p>Architecture-led environments designed for structured collaboration and governance.</p>
+          <ul>
+            <li>Tenant strategy and configuration design</li>
+            <li>Information architecture modeling</li>
+            <li>Metadata framework and content structure</li>
+            <li>Permissions and governance strategy</li>
+            <li>Optimization & advisory engagements</li>
+            <li>Select full implementation projects (limited availability)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Website Digital Presence Ecosystems</h3>
+          <p>Strategic external-facing ecosystems designed for credibility, clarity, and scalability.</p>
+          <ul>
+            <li>Structured site architecture and navigation</li>
+            <li>Messaging and layout refinement</li>
+            <li>Wix implementation and mobile optimization</li>
+            <li>Guided launch and stabilization</li>
+            <li>Semi-annual structured support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-title">
+        <h2>How we work</h2>
+        <div class="hint">A structured delivery framework that keeps decisions clear and momentum steady.</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <b>Vision & scope alignment</b>
+          <span>Clarify goals, constraints, and success criteria.</span>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <b>Requirements & decisions</b>
+          <span>Confirm structure, governance, and content readiness.</span>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <b>Implementation</b>
+          <span>Build with precision, documentation, and transparency.</span>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <b>Stabilization</b>
+          <span>QA, handoff, and early refinements to ensure usability.</span>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <b>Optional support</b>
+          <span>Six-month support terms to maintain structure over time.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="section-title">
+        <h2>Ongoing support</h2>
+        <div class="hint">Support is offered exclusively in six-month terms. Renewal is optional and confirmed prior to each new term.</div>
+      </div>
+
+      <div class="tiers">
+        <div class="tier">
+          <div class="label"><i></i> Semi-annual support</div>
+          <h4>Essentials</h4>
+          <p>Light refinements and structured updates—ideal for stable environments and low-volume changes.</p>
+        </div>
+        <div class="tier">
+          <div class="label"><i></i> Semi-annual support</div>
+          <h4>Growth</h4>
+          <p>Moderate refinements with strategic review—designed for evolving organizations.</p>
+        </div>
+        <div class="tier">
+          <div class="label"><i></i> Semi-annual support</div>
+          <h4>Strategic</h4>
+          <p>Ongoing optimization and advisory refinement—best for active initiatives and continuous improvements.</p>
+        </div>
+      </div>
+
+      <p class="fine" style="margin-top:14px;">
+        Support is scoped in advance to protect clarity, quality, and turnaround expectations.
+      </p>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <div class="hint">Engagements begin with a discovery consultation to assess readiness, structure, and long-term goals.</div>
+      </div>
+
+      <div class="card">
+        <h3>Request a consultation</h3>
+        <p>
+          Email <a href="mailto:cafeologix@gmail.com?subject=Consultation%20Request%20-%20cafeoLogix">cafeologix@gmail.com</a>
+          or click below to start a draft message.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:cafeologix@gmail.com?subject=Consultation%20Request%20-%20cafeoLogix&body=Hello%20cafeoLogix%2C%0A%0AI%27d%20like%20to%20request%20a%20consultation.%0A%0AOrganization%3A%0AWebsite%20%28if%20applicable%29%3A%0AWhat%20you%27re%20looking%20to%20build%2Fimprove%3A%0APreferred%20timeline%3A%0A%0AThank%20you%2C%0A">Request Consultation</a>
+          <a class="btn" href="#top">Back to top <small>↑</small></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> cafeoLogix</div>
+      <div class="fine">Intentionally designed ecosystems — with a touch of craft.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Set footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
